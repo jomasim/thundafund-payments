@@ -1,0 +1,27 @@
+@font-face {font-family: "bold";
+    src:  url('../../fonts/Avenir/AvenirMedium.otf') format('opentype')
+  }
+  
+  @font-face {font-family: "medium";
+    src:  url('../../fonts/Avenir/AvenirBook.otf') format('opentype')
+  }
+  
+  $break-small: 768px;
+  $break-large: 1024px;
+  $primary_color:#47B6BD;
+  $secondary_color:#ee7432;
+  
+  @mixin respond-to($media) {
+    @if $media == mobile {
+      @media only screen and (max-width: $break-small) { @content; }
+    }
+    @else if $media == medium-screens {
+      @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+    }
+    @else if $media == wide-screens {
+      @media only screen and (min-width: $break-large) { @content; }
+    }
+  }
+  
+  $normal:medium;
+  $bold:bold;
